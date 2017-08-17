@@ -31,6 +31,19 @@ namespace QuickstartIdentityServer
             {
                 new Client
                 {
+                    ClientId = "off.client",
+                    AllowedGrantTypes = GrantTypes.ResourceOwnerPasswordAndClientCredentials,
+                    AllowOfflineAccess = true,
+
+                    ClientSecrets = 
+                    {
+                        new Secret("secret".Sha256())
+                    },
+                    AllowedScopes = { "api1", "offline_access" }
+                },
+
+                new Client
+                {
                     ClientId = "client",
                     AllowedGrantTypes = GrantTypes.ClientCredentials,
 
